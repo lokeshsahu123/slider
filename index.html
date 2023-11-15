@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+<div class="container">
+    
+    <div class="owl-carousel owl-theme">
+        <div class="item"> 
+           <div class="slider-text">
+             <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur”</p>
+           </div>
+           <div class="video-wrapper">
+             <div class="playbutton"></div>
+             <video  controls  muted src="./assets/image/pexels-olya-kobruseva-5408798 (1080p).mp4">
+                 <!-- <source src="./assets/image/pexels-olya-kobruseva-5408798 (1080p).mp4"> -->
+             </video>
+           </div>
+           <div class="q-img">
+             <img src="./assets/image/quote.png" alt="">
+           </div>
+        </div>
+        <div class="item"> 
+         <div class="slider-text">
+           <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur”</p>
+         </div>
+         <div class="video-wrapper">
+           <div class="playbutton"></div>
+           <video  controls  muted src="./assets/image/pexels-olya-kobruseva-5408798 (1080p).mp4">
+               <!-- <source src="./assets/image/pexels-olya-kobruseva-5408798 (1080p).mp4"> -->
+           </video>
+         </div>
+         <div class="q-img">
+           <img src="./assets/image/quote.png" alt="">
+         </div>
+      </div>
+         <div class="item"><h4>4</h4></div>
+         <div class="item"><h4>5</h4></div>
+       
+     </div>
+</div>
+   
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./assets/carousel/owl.carousel.min.js"></script>
+    
+
+    <script>
+        $('.owl-carousel').owlCarousel({
+            // center: true,
+    loop:true,
+    margin:10,
+    nav:true,
+    navText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+    // navText : [" <img src='./assets/image/chevronleft.png'>"," <img src='./assets/image/chevronright.png'>"],
+
+   
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
+    
+})
+</script>
+
+<script>
+    const playbutton = document.querySelector('.playbutton')
+let video = document.querySelector('video')
+let started = false
+
+
+
+playbutton.addEventListener('click', () => {
+
+  if(video.paused) {
+    video.play()
+    playbutton.classList.add('playing')
+  } else {
+    video.pause()
+    playbutton.classList.remove('playing')
+  }
+})
+
+//only used if the controls attribute is taken off the video element
+// video.addEventListener('click', () => {
+  // if(video.paused) {
+  // video.play() 
+  // } else {
+  // video.pause()
+  // }
+// })
+
+
+video.addEventListener('ended', () => {
+  playbutton.classList.remove('playing')  
+})
+
+
+video.addEventListener('play', () => {
+  playbutton.classList.add('playing')  
+})
+
+
+video.addEventListener('pause', () => {
+  playbutton.classList.remove('playing')  
+})
+</script>
+</body>
+</html>
